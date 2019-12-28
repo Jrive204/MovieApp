@@ -29,7 +29,8 @@ export const StyledHeroImage = styled.div`
     bottom: 40px;
     margin-right: 20px;
     min-height: 100px;
-    background: rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0.45);
+    padding: 1%;
     color: #fff;
 
     h1 {

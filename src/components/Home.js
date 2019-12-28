@@ -18,7 +18,7 @@ import HeroImage from "./elements/HeroImage";
 //custom hook
 import { useHomeFetch } from "./hooks/useHomeFetch";
 
-import NoImage from "./images/no_image.jpg";
+import NoImage from "./images/no_image2.png";
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState(``);
