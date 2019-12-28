@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+// import styled from "styled-components";
 
 import RMDBLogo from "../images/reactMovie_logo.png";
 import TMDBLogo from "../images/tmdb_logo.svg";
@@ -9,6 +9,7 @@ import {
   StyledRMDBLogo,
   StyledTMDBLogo
 } from "../styles/StyledHeader";
+import { Link } from "react-router-dom";
 
 // 1. Learn how to create a styled component
 // 2. Learn how to handle props in styled component
@@ -56,7 +57,9 @@ import {
 const Header = () => (
   <StyledHeader>
     <div className='header-content'>
-      <StyledRMDBLogo src={RMDBLogo} alt='rmdb-logo' />
+      <Link to='/'>
+        <StyledRMDBLogo src={RMDBLogo} alt='rmdb-logo' />
+      </Link>
       <StyledTMDBLogo src={TMDBLogo} alt='tmdb-logo' />
     </div>
   </StyledHeader>
