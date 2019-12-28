@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledHeroImage = styled.div`
   background: ${props =>
@@ -33,7 +33,7 @@ export const StyledHeroImage = styled.div`
     color: #fff;
 
     h1 {
-      font-family: 'Abel', sans-serif;
+      font-family: "Abel", sans-serif;
       font-size: 48px;
       color: #fff;
 
@@ -44,7 +44,7 @@ export const StyledHeroImage = styled.div`
     }
 
     p {
-      font-family: 'Abel', sans-serif;
+      font-family: "Abel", sans-serif;
       font-size: 22px;
       line-height: 26px;
       color: #fff;
