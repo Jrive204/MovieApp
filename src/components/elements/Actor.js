@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 import NoImage from "../images/no_image.jpg";
 
@@ -21,8 +21,8 @@ const Actor = ({ actor }) => (
   </StyledActor>
 );
 
-Actor.propTypes = {
-  actor: PropTypes.object
-};
+// Actor.propTypes = {
+//   actor: PropTypes.object
+// };
 
 export default Actor;

@@ -1,7 +1,7 @@
 import React from "react";
 // import styled from "styled-components";
 import { StyledHeroImage } from "../styles/StyledHeroImage";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 // const StyledHeroImage = styled.div`
 //   background: ${props =>
@@ -86,10 +86,10 @@ const HeroImage = ({ image, title, text }) => (
   </StyledHeroImage>
 );
 
-HeroImage.propTypes = {
-  image: PropTypes.string,
-  title: PropTypes.string,
-  text: PropTypes.string
-};
+// HeroImage.propTypes = {
+//   image: PropTypes.string,
+//   title: PropTypes.string,
+//   text: PropTypes.string
+// };
 
 export default HeroImage;

@@ -1,7 +1,7 @@
 import React from "react";
 import { StyledMovieThumb } from "../styles/StyledMovieThumb";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 const MovieThumb = ({ image, clickable, movieId }) => {
   return (
@@ -17,10 +17,10 @@ const MovieThumb = ({ image, clickable, movieId }) => {
   );
 };
 
-MovieThumb.propTypes = {
-  image: PropTypes.string,
-  clickable: PropTypes.bool,
-  movieId: PropTypes.number
-};
+// MovieThumb.propTypes = {
+//   image: PropTypes.string,
+//   clickable: PropTypes.bool,
+//   movieId: PropTypes.number
+// };
 
 export default MovieThumb;
