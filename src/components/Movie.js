@@ -14,7 +14,6 @@ import { useMovieFetch } from "./hooks/useMovieFetch";
 const Movie = () => {
   const { mid } = useParams();
   const [movie, loading, error] = useMovieFetch(mid);
-  console.log(movie, `movie`);
   console.log(mid, `movieID`);
 
   if (error) return <div>something went wrong ..</div>;
