@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledActor = styled.div`
-  font-family: 'Abel', sans-serif;
+  font-family: "Abel", sans-serif;
   color: #fff;
   background: #1c1c1c;
   border-radius: 20px;
@@ -11,9 +11,14 @@ export const StyledActor = styled.div`
   img {
     display: block;
     width: 100%;
-    height: 200px;
+    height: 250px;
     object-fit: cover;
+    object-position: top;
     border-radius: 15px;
+
+    @media screen and (max-width: 500px) {
+      object-fit: contain;
+    }
   }
 
   .actor-name {
