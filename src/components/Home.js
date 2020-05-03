@@ -1,24 +1,25 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   POPULAR_BASE_URL,
   SEARCH_BASE_URL,
   POSTER_SIZE,
   BACKDROP_SIZE,
-  IMAGE_BASE_URL
-} from "../config";
+  IMAGE_BASE_URL,
+} from '../config';
 
 // Import components
-import SearchBar from "./elements/SearchBar";
-import Grid from "./elements/Grid";
-import MovieThumb from "./elements/MovieThumb";
-import Spinner from "./elements/Spinner";
-import LoadMoreBtn from "./elements/LoadMoreBtn";
-import HeroImage from "./elements/HeroImage";
+import SearchBar from './elements/SearchBar';
+import Grid from './elements/Grid';
+import MovieThumb from './elements/MovieThumb';
+import Spinner from './elements/Spinner';
+import LoadMoreBtn from './elements/LoadMoreBtn';
+import HeroImage from './elements/HeroImage';
 
 //custom hook
-import { useHomeFetch } from "./hooks/useHomeFetch";
+import { useHomeFetch } from './hooks/useHomeFetch';
 
-import NoImage from "./images/no_image2.png";
+import NoImage from './images/no_image2.png';
+import NotFound from './NotFound';
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState(``);
@@ -26,12 +27,12 @@ const Home = () => {
     {
       state: { movies, currentPage, totalPages, heroImage },
       loading,
-      error
+      error,
     },
-    fetchMovies
+    fetchMovies,
   ] = useHomeFetch(searchTerm);
 
-  const searchMovies = search => {
+  const searchMovies = (search) => {
     const endpoint = search ? SEARCH_BASE_URL + search : POPULAR_BASE_URL;
 
     setSearchTerm(search);
@@ -39,8 +40,9 @@ const Home = () => {
   };
 
   const loadMoreMovies = () => {
-    const searchEndpoint = `${SEARCH_BASE_URL}${searchTerm}&page=${currentPage +
-      1}`;
+    const searchEndpoint = `${SEARCH_BASE_URL}${searchTerm}&page=${
+      currentPage + 1
+    }`;
 
     const popularEndpoint = `${POPULAR_BASE_URL}&page=${currentPage + 1}`;
 
@@ -52,10 +54,10 @@ const Home = () => {
   // console.log(state, `state`);
 
   if (error) return <div>Something went wrong...</div>;
-  if (!movies[0]) return <Spinner />;
+  // if (!movies[0]) return <Spinner />;
   return (
     <>
-      {!searchTerm && (
+      {!searchTerm && movies[0] && (
         <HeroImage
           image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${heroImage.backdrop_path}`}
           title={heroImage.original_title}
@@ -64,8 +66,8 @@ const Home = () => {
       )}
 
       <SearchBar callback={searchMovies} />
-      <Grid header={searchTerm ? "Search Result" : "Popular Movies"}>
-        {movies.map(movie => (
+      <Grid header={searchTerm ? 'Search Result' : 'Popular Movies'}>
+        {movies.map((movie) => (
           <MovieThumb
             key={movie.id}
             clickable
@@ -83,6 +85,11 @@ const Home = () => {
       {currentPage < totalPages && !loading && (
         <LoadMoreBtn text='Load More' callback={loadMoreMovies} />
       )}
+      {!movies[0] ? (
+        <div style={{ textAlign: 'center', fontWeight: 'bolder' }}>
+          <NotFound />
+        </div>
+      ) : null}
     </>
   );
 };

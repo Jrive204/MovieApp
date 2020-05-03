@@ -1,68 +1,36 @@
-import React from "react";
-// import styled from "styled-components";
+import React from 'react';
 
-import RMDBLogo from "../images/reactMovie_logo.png";
-import TMDBLogo from "../images/tmdb_logo.svg";
+import RMDBLogo from '../images/reactMovie_logo.png';
+import TMDBLogo from '../images/tmdb_logo.svg';
 
 import {
   StyledHeader,
   StyledRMDBLogo,
-  StyledTMDBLogo
-} from "../styles/StyledHeader";
-import { Link } from "react-router-dom";
+  StyledTMDBLogo,
+} from '../styles/StyledHeader';
+import { Link, useLocation } from 'react-router-dom';
 
-// 1. Learn how to create a styled component
-// 2. Learn how to handle props in styled component
-// 3. Create a global style with styled components
+const Header = () => {
+  const { pathname } = useLocation();
+  console.log(pathname, 'header');
 
-// const StyledHeader = styled.div`
-//   background: #1c1c1c;
-//   padding: 0 20px;
-//   box-sizing: border-box;
-
-//   .header-content {
-//     max-width: 1280px;
-//     min-height: 120px;
-//     padding: 20px 0;
-//     box-sizing: border-box;
-
-//     @media screen and (max-width: 500px) {
-//       min-height: 0px;
-//     }
-//   }
-// `;
-
-// const StyledRMDBLogo = styled.img`
-//   width: 250px;
-//   margin-top: 20px;
-
-//   @media screen and (max-width: 500px) {
-//     width: 150px;
-//     margin-top: 5px;
-//   }
-// `;
-
-// const StyledTMDBLogo = styled.img`
-//   width: 122px;
-//   margin-top: 25px;
-//   float: right;
-
-//   @media screen and (max-width: 500px) {
-//     display: inline-block;
-//     width: 80px;
-//     margin-top: 0px;
-//   }
-// `;
-
-const Header = () => (
-  <StyledHeader>
-    <div className='header-content'>
-      <Link to='/'>
-        <StyledRMDBLogo src={RMDBLogo} alt='rmdb-logo' />
-      </Link>
-      <StyledTMDBLogo src={TMDBLogo} alt='tmdb-logo' />
-    </div>
-  </StyledHeader>
-);
+  return (
+    <StyledHeader>
+      <div className='header-content'>
+        <Link
+          to='/'
+          onClick={() =>
+            pathname === '/'
+              ? window.location.reload(true)
+              : console.log('goodbye')
+          }
+        >
+          <StyledRMDBLogo src={RMDBLogo} alt='rmdb-logo' />
+        </Link>
+        <StyledTMDBLogo src={TMDBLogo} alt='tmdb-logo' />
+      </div>
+    </StyledHeader>
+  );
+};
 
 export default Header;

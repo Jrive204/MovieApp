@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 // import PropTypes from "prop-types";
 
-import NoImage from "../images/no_image2.png";
-import { IMAGE_BASE_URL, POSTER_SIZE } from "../../config";
+import NoImage from '../images/no_image2.png';
+import { IMAGE_BASE_URL, POSTER_SIZE } from '../../config';
 
-import MovieThumb from "./MovieThumb";
+import MovieThumb from './MovieThumb';
 
-import { StyledMovieInfo } from "../styles/StyledMovieInfo";
+import { StyledMovieInfo } from '../styles/StyledMovieInfo';
 
 const MovieInfo = ({ movie }) => (
   <StyledMovieInfo backdrop={movie.backdrop_path}>
@@ -32,8 +32,8 @@ const MovieInfo = ({ movie }) => (
             <div className='score'>{movie.vote_average}</div>
           </div>
           <div className='director'>
-            <h3>DIRECTOR{movie.directors.length > 1 ? "S" : ""}</h3>
-            {movie.directors.map(element => (
+            <h3>DIRECTOR{movie?.directors?.length > 1 ? 'S' : ''}</h3>
+            {movie?.directors?.map((element) => (
               <p key={element.credit_id}>{element.name}</p>
             ))}
           </div>
