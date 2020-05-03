@@ -1,15 +1,15 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import Navigation from "./elements/Navigation";
-import MovieInfo from "./elements/MovieInfo";
-import Actor from "./elements/Actor";
-import MovieInfoBar from "./elements/MovieInfoBar";
-import Grid from "./elements/Grid";
-import Spinner from "./elements/Spinner";
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import Navigation from './elements/Navigation';
+import MovieInfo from './elements/MovieInfo';
+import Actor from './elements/Actor';
+import MovieInfoBar from './elements/MovieInfoBar';
+import Grid from './elements/Grid';
+import Spinner from './elements/Spinner';
 
 //custom hook
 
-import { useMovieFetch } from "./hooks/useMovieFetch";
+import { useMovieFetch } from './hooks/useMovieFetch';
 
 const Movie = () => {
   const { mid } = useParams();
@@ -29,7 +29,7 @@ const Movie = () => {
         revenue={movie.revenue}
       />
       <Grid header='Actors'>
-        {movie.actors.map(actor => (
+        {movie?.actors?.map((actor) => (
           <Actor key={actor.credit_id} actor={actor} />
         ))}
       </Grid>
